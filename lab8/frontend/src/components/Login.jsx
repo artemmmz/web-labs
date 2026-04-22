@@ -13,8 +13,6 @@ export default function Login({ onSwitchToRegister }) {
     try {
       await login(form);
       setForm({ login: '', password: '' });
-    } catch (err) {
-      // ошибка уже обработана в контексте
     } finally {
       setLoading(false);
     }

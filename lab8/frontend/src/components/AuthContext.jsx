@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
       return;
     }
     try {
-      const data = await api.getProfile(authToken);
+      const data = await api.getProfile(authToken, setError);
       setProfile(data);
     } catch {
       logout();
@@ -37,13 +37,13 @@ export function AuthProvider({ children }) {
   }, [token, loadProfile]);
 
   const login = async (credentials) => {
-    const data = await api.login(credentials);
+    const data = await api.login(credentials, setError);
     setToken(data.access_token);
     return data;
   };
 
   const register = async (data) => {
-    const result = await api.register(data);
+    const result = await api.register(data, setError);
     setToken(result.access_token);
     return result;
   };

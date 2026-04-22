@@ -20,7 +20,8 @@ export default function Register({ onSwitchToLogin }) {
     try {
       await register(form);
       setForm({ login: '', email: '', firstname: '', lastname: '', password1: '', password2: '' });
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
